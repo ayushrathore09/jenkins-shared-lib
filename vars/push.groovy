@@ -4,5 +4,5 @@ def call(String imagename, String dockerhubuser){
   withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
     sh "docker login -u ${env.USERNAME} -p ${env.PASSWORD}"
   }
-  sh "docker push ${dockerhubuser}/${imagename}:latest"
+  sh "docker push ${imagename} ${dockerhubuser}/${imagename}:latest"
 } 
